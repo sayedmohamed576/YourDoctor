@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "518335946514",
+    "firebase_url": "https://yourdocto.firebaseio.com",
+    "project_id": "yourdocto",
+    "storage_bucket": "yourdocto.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:518335946514:android:85a73e7605d2412f",
+        "android_client_info": {
+          "package_name": "com.tutorials.hp.firebaselistviewmulti_items"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "518335946514-810ia06bvcnuv4j9snbj0c5odu9pi80l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0VvvxFU7Zbaia0k3i4reb79pOHxPENBw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:518335946514:android:0332067591f6051d",
+        "android_client_info": {
+          "package_name": "com.example.medos.permission"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "518335946514-810ia06bvcnuv4j9snbj0c5odu9pi80l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0VvvxFU7Zbaia0k3i4reb79pOHxPENBw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
