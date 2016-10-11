@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         Firebase.setAndroidContext(this);
 
         readRef = new Firebase("https://yourdocto.firebaseio.com/0N1gRgGdCscbsQd7lOhv3fkXW3u1/Profile");
-        list=(ListView)findViewById(R.id.listView);
+      //  list=(ListView)findViewById(R.id.listView);
         final ArrayAdapter arrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,array);
         list.setAdapter(arrayAdapter);
        // Firebase usertest = readRef.child("users");

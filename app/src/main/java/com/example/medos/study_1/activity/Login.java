@@ -1,10 +1,10 @@
-package com.example.medos.study_1;
+package com.example.medos.study_1.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -12,20 +12,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.medos.study_1.activity.IconTextTabsActivity;
+import com.example.medos.study_1.R;
 import com.firebase.client.Firebase;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.sql.Ref;
 
 public class Login extends AppCompatActivity {
-
     private EditText et_username;
     private EditText et_password;
     private Firebase RefRoot;
@@ -33,41 +28,41 @@ public class Login extends AppCompatActivity {
     private Button btn;
     private FirebaseAuth.AuthStateListener mAuthlistener;
     private ProgressDialog progressDialog;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Firebase.setAndroidContext(this);
 
-        mAuth=FirebaseAuth.getInstance();
-      //  mAuth.addAuthStateListener(mAuthlistener);
+        mAuth= FirebaseAuth.getInstance();
+        //  mAuth.addAuthStateListener(mAuthlistener);
         et_password=(EditText)findViewById(R.id.et_password);
         et_username=(EditText)findViewById(R.id.et_username);
         progressDialog=new ProgressDialog(this);
         btn=(Button)findViewById(R.id.btn_log);
 
 
-         mAuthlistener= new FirebaseAuth.AuthStateListener() {
-             @Override
-             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                 if(firebaseAuth.getCurrentUser()!=null)
-                 {
-                     FirebaseUser user = firebaseAuth.getCurrentUser();
-                     if (user != null) {
+        mAuthlistener= new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                if(firebaseAuth.getCurrentUser()!=null)
+                {
+                    FirebaseUser user = firebaseAuth.getCurrentUser();
+                    if (user != null) {
 
                         // mAuth.signOut();
-                         String Doctor_ID = user.getUid();
-                         Toast.makeText(Login.this, Doctor_ID, Toast.LENGTH_LONG).show();
-                         Log.d("id value",Doctor_ID);
-                         RefRoot = new Firebase("https://yourdocto.firebaseio.com/fTnf1gClrlUgwDv74zEvBSznKvB3");
-                     }
-                 }
-             }
-         };
+                        String Doctor_ID = user.getUid();
+                        Toast.makeText(Login.this, Doctor_ID, Toast.LENGTH_LONG).show();
+                        //
+                        Log.d("id value",Doctor_ID);
+                        RefRoot = new Firebase("https://yourdocto.firebaseio.com/fTnf1gClrlUgwDv74zEvBSznKvB3");
+                    }
+                }
+            }
+        };
     }
     public void login(View view) {
-     startSignin();
+        startSignin();
     }
 
     @Override
@@ -86,10 +81,13 @@ public class Login extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (!task.isSuccessful()) {
                         Toast.makeText(Login.this, "Sign In Problem", Toast.LENGTH_LONG).show();
-                       // Log.v("error",task.getException().toString());
+                        // Log.v("error",task.getException().toString());
                     }
                     else {
                         Toast.makeText(Login.this, "Successfull To Make Account", Toast.LENGTH_LONG).show();
+
+
+
                                         /*String Name = "ali";
                                         String Address = "ahmed";
                                         String Specialist = "al";
@@ -104,7 +102,7 @@ public class Login extends AppCompatActivity {
                                         Doctor.setCertificatesPIC(CertificatesPIC);
                                         refChild.push().setValue(Doctor);
                                         refChild2.push().setValue(Doctor);*/
-                                      //  Toast.makeText(Login.this, "Make Database", Toast.LENGTH_LONG).show();
+                        //  Toast.makeText(Login.this, "Make Database", Toast.LENGTH_LONG).show();
                         String Name = "ali";
                         RefRoot.push().setValue(Name);
 
@@ -112,8 +110,8 @@ public class Login extends AppCompatActivity {
                 }
             });
         }
-      //  progressDialog.setMessage("Register Doctor......");
-      //  progressDialog.show();
+        //  progressDialog.setMessage("Register Doctor......");
+        //  progressDialog.show();
     }
     private void startSignin(){
         String email=et_username.getText().toString();
@@ -130,7 +128,7 @@ public class Login extends AppCompatActivity {
                     }
                     else{
                         Toast.makeText(Login.this, "Sucssfull", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(Login.this,IconTextTabsActivity.class));
+                        startActivity(new Intent(Login.this,MainActivity.class));
                     }
                 }
             });
